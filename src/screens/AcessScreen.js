@@ -1,11 +1,14 @@
 import { StyleSheet, View, Image, Text, TextInput, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
+import { Checkbox } from 'expo-checkbox';
 
 import Button from '../components/Button';
 
 const AcessScreen = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [confirmaSenha, setConfirmaSenha] = useState('');
+        const [isChecked, setChecked] = useState(false);
     return (
 
         <View style={styles.container}>
@@ -35,6 +38,15 @@ const AcessScreen = ({ navigation }) => {
                 onChangeText={setSenha}
                 secureTextEntry={true}
             />
+            <View style={styles.containerCheckbox}>
+                        <Checkbox
+                        value={isChecked}
+                        onValueChange={setChecked}
+                        color={isChecked ? '#20983e' : undefined}
+                        />
+                        <Text style={styles.textCheckbox}>Lembrar senha</Text>
+                        <Text style={styles.textCheckbox}>Esqueci minha senha</Text>
+            </View>
 
             <View style={styles.conatinerBotoes}>
                 <Button
@@ -93,6 +105,14 @@ const styles = StyleSheet.create({
         padding: 10,
         color: '#57676b',
         borderRadius: 8
+    },
+    containerCheckbox: {
+        alignItems: 'center',
+        flexDirection: 'row',
+    },
+    textCheckbox: {
+        margin: 20,
+        fontSize: 10
     },
     conatinerBotoes: {
         justifyContent: 'center',

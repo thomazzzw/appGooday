@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, Text, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Image, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import React, { useState } from 'react';
 
 import Button from '../components/Button';
@@ -7,8 +7,9 @@ const CadastroScreen = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [confirmaSenha, setConfirmaSenha] = useState('');
-    return (
 
+    return (
+        <ScrollView>
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Text style={styles.setaVoltar}>‹</Text>
@@ -46,7 +47,6 @@ const CadastroScreen = ({ navigation }) => {
                 onChangeText={setConfirmaSenha}
                 secureTextEntry={true}
             />
-
             <View style={styles.conatinerBotoes}>
                 <Button
                     style={styles.botao1}
@@ -65,6 +65,7 @@ const CadastroScreen = ({ navigation }) => {
                 <Image style={styles.imagens} source={require('../../images/Facebook.png')} />
             </View>
         </View>
+        </ScrollView>
     )
 }
 
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
         height: 50,
         padding: 10,
         color: '#57676b',
-        borderRadius: 8
+        borderRadius: 8,
     },
     conatinerBotoes: {
         justifyContent: 'center',
