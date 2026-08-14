@@ -10,61 +10,61 @@ const CadastroScreen = ({ navigation }) => {
 
     return (
         <ScrollView>
-        <View style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-                <Text style={styles.setaVoltar}>‹</Text>
-            </TouchableOpacity>
+            <View style={styles.container}>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <Text style={styles.setaVoltar}>‹</Text>
+                </TouchableOpacity>
 
-            <Text style={styles.titulo}>Cadastrar-se</Text>
-            <Text style={styles.text}>informe seu E-mail e crie uma senha</Text>
+                <Text style={styles.titulo}>Cadastrar-se</Text>
+                <Text style={styles.text}>informe seu E-mail e crie uma senha</Text>
 
-            <Text style={styles.text}>Email</Text>
+                <Text style={styles.text}>Email</Text>
 
-            <TextInput
-                style={styles.containerTextInput}
-                placeholder='Digite seu email'
-                value={email}
-                onChangeText={setEmail}
-            />
-
-
-            <Text style={styles.text}>Crie uma senha</Text>
-
-            <TextInput
-                style={styles.containerTextInput}
-                placeholder='Digite sua senha'
-                value={senha}
-                onChangeText={setSenha}
-                secureTextEntry={true}
-            />
-
-            <Text style={styles.text}>Repita a senha</Text>
-
-            <TextInput
-                style={styles.containerTextInput}
-                placeholder='Digite sua senha'
-                value={confirmaSenha}
-                onChangeText={setConfirmaSenha}
-                secureTextEntry={true}
-            />
-            <View style={styles.conatinerBotoes}>
-                <Button
-                    style={styles.botao1}
-                    texto="Cadastrar"
-                    onPress={() => navigation.navigate('Acess')}
-                    textStyle={styles.textoBranco}
+                <TextInput
+                    style={styles.containerTextInput}
+                    placeholder='Digite seu email'
+                    value={email}
+                    onChangeText={setEmail}
                 />
+
+
+                <Text style={styles.text}>Crie uma senha</Text>
+
+                <TextInput
+                    style={styles.containerTextInput}
+                    placeholder='Digite sua senha'
+                    value={senha}
+                    onChangeText={setSenha}
+                    secureTextEntry={true}
+                />
+
+                <Text style={styles.text}>Repita a senha</Text>
+
+                <TextInput
+                    style={styles.containerTextInput}
+                    placeholder='Digite sua senha'
+                    value={confirmaSenha}
+                    onChangeText={setConfirmaSenha}
+                    secureTextEntry={true}
+                />
+                <View style={styles.conatinerBotoes}>
+                    <Button
+                        style={styles.botao1}
+                        texto="Cadastrar"
+                        onPress={() => navigation.navigate('Acess')}
+                        textStyle={styles.textoBranco}
+                    />
+                </View>
+                <View style={styles.containerRedes}>
+                    <View style={styles.linha} />
+                    <Text style={styles.text}>Ou continue com</Text>
+                    <View style={styles.linha} />
+                </View>
+                <View style={styles.linhaRedes}>
+                    <Image style={styles.imagens} source={require('../../images/Google.png')} />
+                    <Image style={styles.imagens} source={require('../../images/Facebook.png')} />
+                </View>
             </View>
-            <View style={styles.containerRedes}>
-                <View style={styles.linha} />
-                <Text style={styles.text}>Ou continue com</Text>
-                <View style={styles.linha} />
-            </View>
-            <View style={styles.linhaRedes}>
-                <Image style={styles.imagens} source={require('../../images/Google.png')} />
-                <Image style={styles.imagens} source={require('../../images/Facebook.png')} />
-            </View>
-        </View>
         </ScrollView>
     )
 }

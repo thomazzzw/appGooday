@@ -8,7 +8,18 @@ const AcessScreen = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [confirmaSenha, setConfirmaSenha] = useState('');
-        const [isChecked, setChecked] = useState(false);
+    const [isChecked, setChecked] = useState(false);
+    const emailLogin = 'thomaz@gmail.com';
+    const senhaLogin = '1111';
+    const [resultadoLogin, setresultadoLogin] = useState('');
+
+    function verificarLogin(){
+        if(email == emailLogin && senha == senhaLogin){
+            setresultadoLogin('Login correto');
+        } else {
+            setresultadoLogin('Login incorreto');
+        }
+    }
     return (
 
         <View style={styles.container}>
@@ -39,20 +50,24 @@ const AcessScreen = ({ navigation }) => {
                 secureTextEntry={true}
             />
             <View style={styles.containerCheckbox}>
-                        <Checkbox
-                        value={isChecked}
-                        onValueChange={setChecked}
-                        color={isChecked ? '#20983e' : undefined}
-                        />
-                        <Text style={styles.textCheckbox}>Lembrar senha</Text>
-                        <Text style={styles.textCheckbox}>Esqueci minha senha</Text>
+                <Checkbox
+                    value={isChecked}
+                    onValueChange={setChecked}
+                    color={isChecked ? '#20983e' : undefined}
+                />
+                <Text style={styles.textCheckbox}>Lembrar senha</Text>
+                <Text style={styles.textCheckbox}>Esqueci minha senha</Text>
             </View>
+
+<View style={resultadoLogin == 'Login correto' ? styles.correto : styles.falha}>
+    {resultadoLogin ?? <Text>{resultadoLogin}</Text>}
+</View>
 
             <View style={styles.conatinerBotoes}>
                 <Button
                     style={styles.botao1}
                     texto="Acessar"
-                    onPress={() => navigation.navigate('nada')}
+                    onPress={verificarLogin}
                     textStyle={styles.textoBranco}
                 />
                 <Button
@@ -157,5 +172,15 @@ const styles = StyleSheet.create({
         height: 70,
         marginHorizontal: 10,
         resizeMode: 'contain',
+    },
+    correto: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: 'green'
+    },
+    falha: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: 'red'
     }
 });
